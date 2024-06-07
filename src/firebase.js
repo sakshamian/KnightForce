@@ -1,24 +1,23 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
-  apiKey: "AIzaSyByo1zKVdCtXD57P7IoHapHzOo2pEL_88s",
-  authDomain: "chess-app-5c618.firebaseapp.com",
-  projectId: "chess-app-5c618",
-  storageBucket: "chess-app-5c618.appspot.com",
-  messagingSenderId: "636609597644",
-  appId: "1:636609597644:web:5d90d2acde876328e8b269",
-  measurementId: "G-DB9VMEQK9Z"
+  apiKey: "AIzaSyC-bhGY7d93c9AkPxKQY7h7lJTws7g487o",
+  authDomain: "knightforce-798a6.firebaseapp.com",
+  projectId: "knightforce-798a6",
+  storageBucket: "knightforce-798a6.appspot.com",
+  messagingSenderId: "15078694171",
+  appId: "1:15078694171:web:4c7c48b5f27e8acada87be",
+  measurementId: "G-VZ76T1FBK7"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 export default auth;
