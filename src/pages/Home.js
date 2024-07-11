@@ -14,7 +14,15 @@ function Home() {
                 navigate("DifficultyPageforChess");
               }}
             >
-              Play Chess bot
+              Play Our Chess bot
+            </button>
+            <button
+              className={`cursive-font`}
+              onClick={() => {
+                navigate("/god-bot");
+              }}
+            >
+              Play Leila
             </button>
             <button
               className={`cursive-font`}

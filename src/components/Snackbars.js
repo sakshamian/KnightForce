@@ -1,9 +1,7 @@
 import * as React from "react";
 import { useEffect } from "react";
-import auth from "../firebase";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
-import { onAuthStateChanged } from "firebase/auth";
 
 function Snackbars() {
   let val = 0;
@@ -24,24 +22,7 @@ function Snackbars() {
   const handleClickforlogout = (newState) => () => {
     setState({ ...newState, open: false, open2: true });
   };
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
 
-        handleClick({ vertical: "bottom", horizontal: "left" })();
-        // ...
-        val = 1;
-      } else {
-        // User is signed out
-        // ...
-        if (val == 1)
-          handleClickforlogout({ vertical: "bottom", horizontal: "left" })();
-        val = 0;
-      }
-    });
-  }, []);
   return (
     <>
       <Snackbar

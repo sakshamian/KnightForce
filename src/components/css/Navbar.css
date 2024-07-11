@@ -3,7 +3,8 @@
 }
 .navbar {
   font-family: "Bungee Spice", sans-serif;
-  background: rgba(0,0,0,0.5);
+  background: black;
+  opacity: 0.8;
   width: 100%;
   height: 100px;
   right:0;
@@ -42,7 +43,8 @@
   margin-right:2%;
   border: 1px white solid;
 }
-.left-heading button{
+.left-heading h1{
+  cursor: pointer;
   border: none;
 }
 .navbar button:hover{

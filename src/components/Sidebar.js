@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./css/Sidebar.css";
 import { Outlet } from "react-router-dom";
 import { Sidebarlink } from "./Sidebarlink";
-import { useSelector, useDispatch, useStore } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   toggle,
   setSmallScreen,
@@ -12,7 +12,6 @@ import {
   href="https://fonts.googleapis.com/css?family=Sofia"
 ></link>;
 const Sidebar = () => {
-  const isloggedin = useSelector((state) => state.loginData.isLoggedIn);
   const isOpen = useSelector((state) => state.sidebarData.isOpen);
   const dispatch = useDispatch();
   const isSmallScreen = useSelector((state) => state.sidebarData.isSmallScreen);
@@ -22,6 +21,20 @@ const Sidebar = () => {
       dispatch(setSmallScreen(true));
     } else {
       dispatch(setSmallScreen(false));
+    }
+  }
+
+  function getCredentials(name) {
+    // Split the name into words
+    const words = name?.trim()?.split(/\s+/);
+
+    // Check if there are two words
+    if (words.length === 2) {
+      // Return the first letter of each word
+      return words[0][0] + words[1][0];
+    } else {
+      // Return the first two letters of the single word
+      return name?.slice(0, 2);
     }
   }
 
@@ -47,18 +60,10 @@ const Sidebar = () => {
       }
     >
       <div className="account-header">
-        <div className="avatar-sidebar">SS</div>
       </div>
       <ul>
         <li>
           <Sidebarlink link="/" content="Home" />
-        </li>
-        <li>
-          {isloggedin ? (
-            <Sidebarlink link="/AccountPage" content="Account" />
-          ) : (
-            <Sidebarlink link="/LoginPage" content="Login" />
-          )}
         </li>
       </ul>
       <Outlet />

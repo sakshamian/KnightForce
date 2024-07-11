@@ -13,7 +13,7 @@
   flex-direction: column;
   width:100vw;
   overflow: hidden;
- 
+  min-height: 100vh;
 }
 
 @media only screen and (max-width: 768px) {
@@ -21,12 +21,6 @@
     width:100vw;
     box-sizing: border-box;
     overflow:hidden;
-  }
-  .OpenContent{
-      display: none;
-      width:0vw;
-    
-      overflow: hidden;
   }
   .App{
     box-sizing: border-box;
@@ -41,19 +35,17 @@
 .card {
   width: 100%;
   height: 100%;
-  max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
   background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
   justify-content: center;
   align-items: center;
 }
 
 .button-col {
   height: 100%;
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,4 +74,12 @@
 }
 .cursive-font {
   font-family: "Roboto", sans-serif;
+}
+
+div[data-square-color="black"] {
+  /* background: #7bde18 !important; */
+}
+
+div[data-square-color="black"] {
+  /* background: #e9edcc !important; */
 }

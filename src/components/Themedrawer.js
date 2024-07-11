@@ -3,32 +3,42 @@ import React from "react";
 import "./css/Themedrawer.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../features/themeFeatures/themeFeatures";
+import { useNavigate } from "react-router-dom";
 
 const ThemeMenu = (props) => {
   var r = document.querySelector(":root");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const colorheading = useSelector((state) => state.theme.themeColor);
   const changeTheme = (color) => {
     r.style.setProperty("--themecolor", color);
     dispatch(setTheme(color));
   };
+
+
   const changeThemeTeal = () => {
     changeTheme("teal");
+    navigate("/");
   };
   const changeThemePurple = () => {
     changeTheme("purple");
+    navigate("/");
   };
   const changeThemeBlue = () => {
     changeTheme("blue");
+    navigate("/");
   };
   const changeThemeOrange = () => {
     changeTheme("orange");
+    navigate("/");
   };
   const changeThemeGreen = () => {
     changeTheme("green");
+    navigate("/");
   };
   const changeThemePink = () => {
     changeTheme("pink");
+    navigate("/");
   };
 
   return (

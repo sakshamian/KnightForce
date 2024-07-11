@@ -2,11 +2,8 @@ import * as React from "react";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { Outlet, Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import auth from "../firebase";
 import { useNavigate } from "react-router-dom";
 import "./css/LoginPage.css";
-import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { setProgressBar } from "../features/progressbarFeatures/progressbarFeatures";
 const Signup = () => {
@@ -36,28 +33,6 @@ const Signup = () => {
     e.preventDefault();
     setdisabled(true);
     dispatch(setProgressBar(true));
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        updateProfile(userCredential.user, {
-          displayName: username,
-        });
-        const user = userCredential.user;
-        navigate("/");
-        setdisabled(false);
-        dispatch(setProgressBar(false));
-
-        console.log(user);
-      })
-      .catch((error) => {
-        handleClick({ vertical: "bottom", horizontal: "left" })();
-        dispatch(setProgressBar(false));
-        setdisabled(false);
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        seterr(errorMessage);
-        console.log(errorCode, errorMessage);
-      });
   };
 
   return (

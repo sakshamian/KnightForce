@@ -2,8 +2,6 @@ import * as React from "react";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { Outlet, Link } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import auth from "../firebase";
 import { useNavigate } from "react-router-dom";
 import "./css/LoginPage.css";
 import { setProgressBar } from "../features/progressbarFeatures/progressbarFeatures";
@@ -33,24 +31,6 @@ const LoginPage = () => {
     e.preventDefault();
     setdisabled(true);
     dispatch(setProgressBar(true));
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigate("/");
-        setdisabled(false);
-        dispatch(setProgressBar(false));
-
-        console.log(user);
-      })
-      .catch((error) => {
-        handleClick({ vertical: "bottom", horizontal: "left" })();
-        dispatch(setProgressBar(false));
-        setdisabled(false);
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
   };
 
   return (

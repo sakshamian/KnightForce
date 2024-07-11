@@ -4,6 +4,7 @@ import Chess from "./Chess/chess.js";
 import "./css/ChessBot.css";
 import minimaxRoot from "./Chess/ChessBotAlgo.js";
 import { useSelector } from "react-redux";
+
 const ChessBot = () => {
   const difficultyModeforChess = useSelector(
     (state) => state.boardgame.difficultyModeforChess
@@ -17,8 +18,9 @@ const ChessBot = () => {
     const gameCopy = { ...game };
     const result = gameCopy.move(move);
     setGame(gameCopy);
-    return result; // null if the move was illegal, the move object if the move was legal
-  }
+    console.log(game);
+    return result;
+  };
 
   function makeBestMove() {
     if (isBlackWinning || isWhiteWinning || isDraw || game.game_over()) return;
@@ -77,13 +79,26 @@ const ChessBot = () => {
   }
   return (
     <div className="card">
-      {/* <div className="headerForBots">{header}</div> */}
-      <div className="ChessBoardContainer">
-        <Chessboard position={game.fen()} onPieceDrop={onDrop} />
+      <div className="botPage">
+        <div className="ChessBoardContainer">
+          <Chessboard
+            position={game.fen()}
+            onPieceDrop={onDrop}
+            customDarkSquareStyle={{
+              background: "#779954"
+            }}
+            customLightSquareStyle={{
+              background: "#e9edcc"
+            }}
+          />
+        </div>
+        <div className="btns">
+          <div className="headerForBots">{header}</div>
+          <button className="clearBoard" onClick={resetBoard}>
+            Reset Game
+          </button>
+        </div>
       </div>
-      {/* <button className="clearBoard" onClick={resetBoard}>
-        Reset Game
-      </button> */}
     </div>
   );
 };
