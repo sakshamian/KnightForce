@@ -14,23 +14,23 @@ function Home() {
                 navigate("DifficultyPageforChess");
               }}
             >
-              Play Our Chess bot
+              Play chess bot
             </button>
-            <button
+            {/* <button
               className={`cursive-font`}
               onClick={() => {
                 navigate("/god-bot");
               }}
             >
               Play Leila
-            </button>
+            </button> */}
             <button
               className={`cursive-font`}
               onClick={() => {
                 navigate("/ThemePage");
               }}
             >
-              Change Theme
+              Theme
             </button>
           </div>
         </div>
